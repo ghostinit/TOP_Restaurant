@@ -1,3 +1,66 @@
+:root {
+    --color-page-bg: rgb(0, 128, 128);
+}
+
 body {
-    background-color: rebeccapurple;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-page-bg);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    padding: 1rem;
+    z-index: 1000;
+    background-color: var(--color-page-bg);
+}
+
+#page-logo {
+    max-height: 100px;
+    margin-block-end: 15px;
+    width: auto;
+}
+
+nav {
+    max-width: 800px;
+    display: flex;
+    margin-inline: auto;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-item {
+    border: none;
+    background-color: transparent;
+    font-size: 1.3rem;
+    transition: 0.2s ease;
+}
+
+.nav-item:hover {
+    transform: scale(1.1);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#content {
+    max-width: 800px;
+    display: flex;
+    margin-inline: auto;
+    align-items: center;
+    flex-direction: column;
+}
+
+#content p {
+    max-width: 60ch;
+    text-align: center;
+}
+
+#content img {
+    max-height: 400px;
+    width: auto;
+
 }
