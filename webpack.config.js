@@ -1,6 +1,8 @@
 // webpack.config.js
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
     mode: "development",
@@ -17,7 +19,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/template.html",
+            favicon: './src/assets/favicon.png'
         }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: './src/assets/favicon.png', to: 'favicon.png' }
+            ]
+        })
     ],
     module: {
         rules: [
@@ -36,6 +44,10 @@ module.exports = {
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
+            },
+            {
+                test: /\.(csv|tsv)$/i,
+                use: ['csv-loader'],
             },
         ],
     },
